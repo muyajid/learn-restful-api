@@ -16,7 +16,7 @@ function validationJSON(req, res, message) {
 };
 
 const account = [];
-const VALID_API_KEY = "1501200920022009";
+const VALID_API_KEY = "";
 const PORT = 3000;
 
 const server = http.createServer(function handler(req, res) {
