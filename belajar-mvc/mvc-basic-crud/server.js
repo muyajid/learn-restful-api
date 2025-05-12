@@ -1,5 +1,5 @@
 import http from 'http';
-import { getAccount, postAccount } from "./controller/accountcontroller.js";
+import { deleteAccount, getAccount, postAccount, updateAccount } from "./controller/accountcontroller.js";
 import { URL } from 'url';
 
 const myServer = http.createServer(function handler(req, res) {
@@ -8,13 +8,22 @@ const myServer = http.createServer(function handler(req, res) {
     const pathName = fullUrl.pathname;
 
     switch (pathName) {
-        case "/api/account":
+        case "/api/account/get":
             getAccount(req, res);
             break;
 
         case "/api/account/post":
             postAccount(req, res)
-    
+            break;
+
+        case "/api/account/put":
+            updateAccount(req, res);
+            break;
+
+        case "/api/account/delete":
+            deleteAccount(req, res);
+            break;
+            
         default:
             break;
     }
