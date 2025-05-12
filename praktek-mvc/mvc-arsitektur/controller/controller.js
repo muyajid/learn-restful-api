@@ -1,5 +1,4 @@
 import { data } from "../model/data.js";
-
 function getData(req, res) {
     if (req.method !== "GET") {
         res.writeHead(401, { "content-type": "application/json" });
