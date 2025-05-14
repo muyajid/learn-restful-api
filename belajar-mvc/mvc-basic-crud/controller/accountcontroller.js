@@ -139,14 +139,11 @@ function deleteAccount(req, res) {
       };
 
       if (drop === true) {
-        const results = dropAccount(username, password);
-        if (results === false) {
-          sendServerResponDelete(res, 404, "Account not found");
-        } else {
-          sendServerResponDelete(res, 200, "Succesfully delete");
-          console.log(showAccount());
-          
-        };
+        dropAccount(username, password);
+        sendServerResponDelete(res, 200, "succesfully delete account");
+        console.log(showAccount());
+      } else {
+        sendServerResponDelete(res, 200, "delete account successfully failed")
       }
     } catch (err) {
       sendServerResponErr(res, 505, "Internal server eror");

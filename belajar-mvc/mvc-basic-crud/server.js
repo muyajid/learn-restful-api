@@ -8,6 +8,11 @@ const myServer = http.createServer(function handler(req, res) {
     const pathName = fullUrl.pathname;
 
     switch (pathName) {
+        case "/api":
+            res.writeHead(200, { "content-type": "text/plain"});
+            res.end("Hello World");
+            break;
+
         case "/api/account/get":
             getAccount(req, res);
             break;
@@ -30,5 +35,5 @@ const myServer = http.createServer(function handler(req, res) {
 });
 
 myServer.listen(3000, () => {
-    console.info(`Server running on port 300`)
+    console.info(`http://localhost:3000/api`)
 })
